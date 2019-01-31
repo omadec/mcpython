@@ -1,6 +1,7 @@
 # variables
 QUIT="quit"
 
+# Play the game
 def playGame( capitalIndex ):
     print( "Starting the game" )
 
@@ -56,7 +57,8 @@ def playGame( capitalIndex ):
     
     # Display the score
     displayScore( capitalIndex, score, statesFound) 
-            
+    
+# Display the score
 def displayScore( capitalIndex, score, statesFound):
     print()
 
@@ -72,6 +74,7 @@ def displayScore( capitalIndex, score, statesFound):
     print( "Score: found " + str(statesFound) + " state(s) in " + str(tries) + " tries." )
 
 
+# Load the configuration
 def loadConf( capitalIndex ):
  # Load the file in memory
  print( "Please enter the input file." )
@@ -79,13 +82,15 @@ def loadConf( capitalIndex ):
  if( filename is "" ):
      filename = 'us-state-capitals.csv'
 
+ # Open the file
  file = open(filename, 'r')
  line = file.readline()
 
- # We skip the first line with the headers
+ # We skip the first line as it contains with the headers
  if line: 
      line = file.readline()
  
+ # Loop on all the lines.
  while line:
      # split the line to get the State and capital.
      # we don't need to GPS corrdonates.
@@ -97,8 +102,11 @@ def loadConf( capitalIndex ):
      #print(tab[0] + ' ' + tab[1])
      # use realine() to read next line
      line = file.readline()
+
+ # Close the file
  file.close()
         
+ 
 def main():
 
  print( "Welcome!" )
