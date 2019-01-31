@@ -7,7 +7,9 @@ def playGame( capitalIndex ):
     # Dict that will store the tries.
     # We store the number of tries per states.
     score = {};
-
+    # stores the number of states found
+    statesFound = 0
+    
     # Loop on all the states
     for state in capitalIndex.keys():
         # Set the flag back to false
@@ -23,7 +25,7 @@ def playGame( capitalIndex ):
             # If the input is the quit command
             if( userResponse == QUIT ):
                 # Display the score
-                displayScore( capitalIndex, score )
+                displayScore( capitalIndex, score, statesFound)
                 
                 # We stop the processing
                 return
@@ -37,6 +39,8 @@ def playGame( capitalIndex ):
 
                 # Found the value for the current state.
                 foundCapital = True;
+                # Increment the number of states found
+                statesFound = statesFound + 1;
             else:
                 # Display error message
                 print( "'" + userResponse + "' is not the capital of " + state )
@@ -51,13 +55,12 @@ def playGame( capitalIndex ):
     # Done with the 50 states
     
     # Display the score
-    displayScore( capitalIndex, score ) 
+    displayScore( capitalIndex, score, statesFound) 
             
-def displayScore( capitalIndex, score ):
-    print()
+def displayScore( capitalIndex, score, statesFound):
     print()
 
-    stateFound = len(score.keys())-1;
+    #statesFound = len(score.keys())-1;
     tries = 0
 
     # Loop on all the states
@@ -66,7 +69,7 @@ def displayScore( capitalIndex, score ):
         if( stateTries != None ):
             tries = tries + stateTries
 
-    print( "Score: found " + str(stateFound) + " state(s) in " + str(tries) + " tries." )
+    print( "Score: found " + str(statesFound) + " state(s) in " + str(tries) + " tries." )
 
 
 def loadConf( capitalIndex ):
