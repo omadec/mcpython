@@ -1,4 +1,4 @@
-# variables
+# Variables
 QUIT="quit"
 
 # Play the game
@@ -54,7 +54,6 @@ def playGame( capitalIndex ):
                 score[state] = stateTries+1
 
     # Done with the 50 states
-    
     # Display the score
     displayScore( capitalIndex, score, statesFound) 
     
@@ -62,15 +61,9 @@ def playGame( capitalIndex ):
 def displayScore( capitalIndex, score, statesFound):
     print()
 
-    #statesFound = len(score.keys())-1;
-    tries = 0
-
-    # Loop on all the states
-    for state in capitalIndex.keys():
-        stateTries = score.get( state )
-        if( stateTries != None ):
-            tries = tries + stateTries
-
+    # Init number of tries
+    tries = sum(score.values())
+    
     print( "Score: found " + str(statesFound) + " state(s) in " + str(tries) + " tries." )
 
 
@@ -99,7 +92,6 @@ def loadConf( capitalIndex ):
      # Add the capitals to the corresponding states
      capitalIndex[ tab[0] ] = tab[1];
         
-     #print(tab[0] + ' ' + tab[1])
      # use realine() to read next line
      line = file.readline()
 
