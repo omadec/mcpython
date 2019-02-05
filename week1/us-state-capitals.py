@@ -98,7 +98,7 @@ def loadConf( capitalIndex ):
  # Close the file
  file.close()
         
- 
+# Main method
 def main():
 
  print( "Welcome!" )
@@ -114,7 +114,5 @@ def main():
 
  print( "Thanks for playing" )
 
-
 if (__name__ == '__main__'): 
     main()
-
